@@ -7,26 +7,26 @@ namespace ModuleA.ViewModels
 {
     public class MessageViewModel : BindableBase
     {
-        IEventAggregator _ea;
-
-        private string _message = "Message to Send";
         public string Message
         {
-            get { return _message; }
-            set { SetProperty(ref _message, value); }
+            get => return this._message;
+            set => SetProperty(ref this._message, value);
         }
 
         public DelegateCommand SendMessageCommand { get; private set; }
 
         public MessageViewModel(IEventAggregator ea)
         {
-            _ea = ea;
-            SendMessageCommand = new DelegateCommand(SendMessage);
+            this._ea = ea;
+            this.SendMessageCommand = new DelegateCommand(
+                () =>
+                {
+                    this._ea.GetEvent<MessageSentEvent>().Publish(Message);
+                }
+            );
         }
 
-        private void SendMessage()
-        {
-            _ea.GetEvent<MessageSentEvent>().Publish(Message);
-        }
+        private IEventAggregator _ea;
+        private string _message = "Message to Send";
     }
 }
