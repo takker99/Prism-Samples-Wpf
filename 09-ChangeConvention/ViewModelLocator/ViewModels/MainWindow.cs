@@ -1,8 +1,8 @@
 ﻿using Prism.Mvvm;
 
-namespace ViewModelLocator.Views
+namespace ViewModelLocator.ViewModels
 {
-    public class MainWindowViewModel : BindableBase
+    public class MainWindow : BindableBase
     {
         private string _title = "Prism Unity Application";
         public string Title
@@ -11,7 +11,7 @@ namespace ViewModelLocator.Views
             set { SetProperty(ref _title, value); }
         }
 
-        public MainWindowViewModel()
+        public MainWindow()
         {
 
         }

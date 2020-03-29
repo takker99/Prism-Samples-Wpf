@@ -11,19 +11,13 @@ namespace Modules
     /// </summary>
     public partial class App : PrismApplication
     {
-        protected override Window CreateShell()
-        {
-            return Container.Resolve<MainWindow>();
-        }
+        // ここから自動生成 code
+        protected override Window CreateShell() => Container.Resolve<MainWindow>();
 
-        protected override void RegisterTypes(IContainerRegistry containerRegistry)
-        {
+        protected override void RegisterTypes(IContainerRegistry containerRegistry) { }
+        // ここまで自動生成 code
 
-        }
-
-        protected override IModuleCatalog CreateModuleCatalog()
-        {
-            return new DirectoryModuleCatalog() { ModulePath = @".\Modules" };
-        }
+        // DirectoryにあるすべてのModule files を読み込む
+        protected override IModuleCatalog CreateModuleCatalog() => new DirectoryModuleCatalog() { ModulePath = @".\Modules" };
     }
 }

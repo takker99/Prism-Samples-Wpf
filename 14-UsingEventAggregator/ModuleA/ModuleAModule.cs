@@ -11,6 +11,7 @@ namespace ModuleA
         public void OnInitialized(IContainerProvider containerProvider)
         {
             var regionManager = containerProvider.Resolve<IRegionManager>();
+            // LeftRegion にこの View を表示する
             regionManager.RegisterViewWithRegion("LeftRegion", typeof(MessageView));
         }
 
